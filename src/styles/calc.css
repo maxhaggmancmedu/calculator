@@ -1,0 +1,24 @@
+.container {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container .button {
+    border: 1px solid white;
+    font-size: 4rem;
+    padding: 24px 0;
+    width: 25%;
+    text-align: center;
+}
+
+.container .button:hover {
+    background-color: ghostwhite;
+    color: #000;
+    cursor: pointer;
+    transition-duration: .2s;
+}
