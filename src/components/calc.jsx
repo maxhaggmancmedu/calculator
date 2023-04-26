@@ -1,6 +1,6 @@
 import '../styles/calc.css'
 import Input from './input'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const CalcDisplay = () => {
 
@@ -8,7 +8,7 @@ const CalcDisplay = () => {
     const sevenToNine = []
     const fourTosix = []
     const oneTothree = []
-    console.log(numbersArray)
+    
 
     for (let i = 7; i < 10; i++) {
         sevenToNine.push(i);
@@ -26,6 +26,12 @@ const CalcDisplay = () => {
 
     }
 
+    const [inputValue, setInputValue] = useState("")
+
+    function updateNumbers (val) {
+        setInputValue(val.target.value)
+    }
+    
         /* numbersArray.push(sevenToNine, fourTosix, oneTothree);
         console.log(numbersArray)
         const correctOrderNumbersArray = Array.prototype.concat(...numbersArray);
@@ -34,7 +40,7 @@ const CalcDisplay = () => {
    return (
 
     <>  
-        <Input />
+        <Input inputValue={inputValue} updateNumbers={updateNumbers} />
         <div className="container">
             <div onClick={() => handleClick()} className="button">(</div>
             <div className="button">)</div>
