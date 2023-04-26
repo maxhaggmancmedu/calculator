@@ -1,10 +1,8 @@
 import '../styles/input.css'
-import { useState } from 'react'
 
-export default function Input({updateNumbers, inputValue}) {
-    console.log(inputValue)
+export default function Input({updateNumbers, inputValue, evaluateInput, handleKeyDown}) {
 
     return (
-        <input type='text' value={inputValue} onChange={updateNumbers}></input>
+        <input type='text' placeholder='0' value={inputValue} onChange={updateNumbers} onKeyDown={handleKeyDown} autoFocus onBlur={({ target }) => target.focus()}></input>
     )
 }
