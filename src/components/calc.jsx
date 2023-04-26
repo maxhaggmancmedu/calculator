@@ -37,6 +37,10 @@ const CalcDisplay = () => {
         const correctOrderNumbersArray = Array.prototype.concat(...numbersArray);
         console.log(correctOrderNumbersArray) */
 
+    const clearInput = () => {
+        setInputValue('');
+    }
+    
    return (
 
     <>  
@@ -45,7 +49,7 @@ const CalcDisplay = () => {
             <div onClick={() => handleClick()} className="button">(</div>
             <div className="button">)</div>
             <div className="button">%</div>
-            <div className="button">CE</div>
+            <div className="button" onClick={clearInput}>CE</div>
             {sevenToNine.map(number => 
                 <div className='button' key={number}>{number}</div>
             )}
