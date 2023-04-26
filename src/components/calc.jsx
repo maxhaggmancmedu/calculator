@@ -29,7 +29,7 @@ const CalcDisplay = () => {
     }
 
     const [inputValue, setInputValue] = useState("")
-    const pattern = /^[0-9+\-*/^.\s]+$/;
+    const pattern = /^(?:[0-9+\-*/^.\s]+)?$/
     
     function updateNumbers (val) {
         if (pattern.test(val.target.value)) {
