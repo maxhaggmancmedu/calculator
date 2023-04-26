@@ -2,6 +2,8 @@ import '../styles/calc.css'
 import Input from './input'
 import React, { useState } from 'react'
 
+// calculate a string sequence https://stackoverflow.com/questions/6479236/calculate-string-value-in-javascript-not-using-eval
+
 const CalcDisplay = () => {
 
     const numbersArray = []
@@ -27,9 +29,16 @@ const CalcDisplay = () => {
     }
 
     const [inputValue, setInputValue] = useState("")
-
+    const pattern = /^[0-9+\-*/^.\s]+$/;
+    
     function updateNumbers (val) {
-        setInputValue(val.target.value)
+        if (pattern.test(val.target.value)) {
+            setInputValue(val.target.value)
+        } else {
+            console.log('not valid')
+            
+        }
+        
     }
     
         /* numbersArray.push(sevenToNine, fourTosix, oneTothree);
