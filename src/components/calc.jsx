@@ -49,11 +49,17 @@ const CalcDisplay = () => {
     const clearInput = () => {
         setInputValue('');
     }
+
+    const evaluateInput = (val) => {
+        eval(val.target.value);
+        setInputValue(eval) 
+        console.log(eval)
+    }
     
    return (
 
     <>  
-        <Input inputValue={inputValue} updateNumbers={updateNumbers} />
+        <Input inputValue={inputValue} updateNumbers={updateNumbers} evaluateInput={evaluateInput}/>
         <div className="container">
             <div onClick={() => handleClick()} className="button">(</div>
             <div className="button">)</div>
@@ -73,7 +79,7 @@ const CalcDisplay = () => {
             <div className="button">-</div>
             <div className="button">0</div>
             <div className="button">.</div>
-            <div className="button">=</div>
+            <div className="button" onClick={evaluateInput}>=</div>
             <div className="button">+</div>
         </div>
     </>
