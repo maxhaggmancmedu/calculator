@@ -24,21 +24,15 @@ const CalcDisplay = () => {
         oneTothree.push(i);
     }
 
-    const handleClick = () => {
-
-    }
-
     const [inputValue, setInputValue] = useState("")
-    const pattern = /^(?:[0-9+\-*/^.\s]+)?$/
+    const pattern = /^(?:[-0-9+*/^()%.\s]+)?$/
     
     function updateNumbers (val) {
         if (pattern.test(val.target.value)) {
             setInputValue(val.target.value)
         } else {
             console.log('not valid')
-            
         }
-        
     }
     
         /* numbersArray.push(sevenToNine, fourTosix, oneTothree);
