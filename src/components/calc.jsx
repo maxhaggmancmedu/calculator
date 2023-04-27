@@ -49,6 +49,10 @@ const CalcDisplay = () => {
         setInputValue(eval) 
         console.log(eval)
     }
+
+    const handleKeyDown = (event) => {
+        (event.key === 'Enter') ? evaluateInput() : ''
+    };
     
    return (
 
