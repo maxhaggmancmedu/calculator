@@ -22,3 +22,14 @@ html {
   flex-direction: column;
   gap: 16px;
 }
+
+@media only screen and (max-width: 391px) {
+  .App {
+    grid-template-columns: 1fr 5fr 1fr;
+  }
+
+  .components {
+    margin-top: 96px;
+  }
+}
+
