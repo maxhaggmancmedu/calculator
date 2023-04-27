@@ -40,45 +40,54 @@ const CalcDisplay = () => {
         const correctOrderNumbersArray = Array.prototype.concat(...numbersArray);
         console.log(correctOrderNumbersArray) */
 
+    useEffect(() => {
+        console.log('input value change')
+    }, [inputValue])
+
     const clearInput = () => {
         setInputValue('');
     }
 
-    const evaluateInput = (val) => {
-        eval(val.target.value);
+    const evaluateInput = () => {
+        console.log(typeof inputValue)
+        eval(inputValue);
         setInputValue(eval) 
-        console.log(eval)
+        console.log(inputValue)
     }
 
     const handleKeyDown = (event) => {
         (event.key === 'Enter') ? evaluateInput() : ''
     };
+
+    const addNumberOrOperation = (valClicked) => {
+        console.log(valClicked)
+        setInputValue((prev) => prev + valClicked)
+    };
     
    return (
-
     <>  
-        <Input inputValue={inputValue} updateNumbers={updateNumbers} evaluateInput={evaluateInput}/>
+        <Input inputValue={inputValue} updateNumbers={updateNumbers} evaluateInput={evaluateInput} handleKeyDown={handleKeyDown}/>
         <div className="container">
-            <div onClick={() => handleClick()} className="button">(</div>
-            <div className="button">)</div>
+            <div className="button" onClick={() => addNumberOrOperation('(')}>(</div>
+            <div className="button" onClick={() => addNumberOrOperation(')')}>)</div>
             <div className="button">%</div>
             <div className="button" onClick={clearInput}>CE</div>
             {sevenToNine.map(number => 
-                <div className='button' key={number}>{number}</div>
+                <div className='button' onClick={() => addNumberOrOperation(number)} key={number}>{number}</div>
             )}
-            <div className="button">÷</div>
+            <div className="button" onClick={() => addNumberOrOperation('/')}>÷</div>
             {fourTosix.map(number => 
-                <div className='button' key={number}>{number}</div>
+                <div className='button' onClick={() => addNumberOrOperation(number)} key={number}>{number}</div>
             )}
-            <div className="button">×</div>
+            <div className="button" onClick={() => addNumberOrOperation('*')}>×</div>
             {oneTothree.map(number => 
-                <div className='button' key={number}>{number}</div>
+                <div className='button' onClick={() => addNumberOrOperation(number)} key={number}>{number}</div>
             )}
-            <div className="button">-</div>
-            <div className="button">0</div>
-            <div className="button">.</div>
+            <div className="button" onClick={() => addNumberOrOperation('-')}>-</div>
+            <div className="button" onClick={() => addNumberOrOperation('0')}>0</div>
+            <div className="button" onClick={() => addNumberOrOperation('.')}>.</div>
             <div className="button" onClick={evaluateInput}>=</div>
-            <div className="button">+</div>
+            <div className="button" onClick={() => addNumberOrOperation('+')}>+</div>
         </div>
     </>
    ) 
