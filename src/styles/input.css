@@ -17,3 +17,9 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+
+@media only screen and (max-width: 391px) {
+  .container .button {
+    font-size: 2rem;
+  }
+}
